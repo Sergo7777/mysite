@@ -1,0 +1,18 @@
+.shares-wrapper p{
+   color: #333;
+}
+
+.margin-top{
+  margin-top: 4%;
+}
+.shares-wrapper{
+  background: #FAFAFA;
+}
+.thumbnail h3{
+  color: red;
+}
+.thumbnail h4{
+  color: red;
+  font-size: 14px;
+  font-family: 'Marck Script', cursive;
+  font-weight: 700;}
