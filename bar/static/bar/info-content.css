@@ -1,0 +1,27 @@
+.container .margin-top{
+  margin-top: 5%;
+}
+.info-content p{
+  color: white;
+  font-size: 100%;
+}
+.info-content img{
+  width: 80%;
+}
+.info-content .header-text{
+  font-weight: 700;
+  font-size: 20px;
+  color: #7CB344;
+}
+.text-left{
+  text-align: center;
+  font-size: 500;
+}
+.info-content .osn-text{
+  font-weight: 700;
+  font-size: 20px;
+  color: #fff;
+
+
+
+

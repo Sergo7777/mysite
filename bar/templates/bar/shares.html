@@ -1,0 +1,30 @@
+{% extends "bar/base.html" %}
+{% load staticfiles %}
+{% block title %}D.O.M{% endblock %}
+
+{% block extra_headers %}        
+<link rel="stylesheet" type="text/css" href="{% static 'bar/shares.css' %}">
+{% endblock %}
+
+{% block content %} 
+<div class="shares-wrapper">
+    <div class="container">
+        <div class="row">
+        {% for item in stocks %}
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 margin-top">
+                <div class="thumbnail">
+                    <h3>{{ item.name }}</h3>
+                    <a href="{{item.image.url}}"><img class="img-center" src="{{item.image.url}}"></a>
+                    <div class="caption">
+                        <h4>Скидка: {{ item.discount }} %</h4>
+                        <p> Акция: с {{ item.start_stock| date:'d-m-Y' }} <br> 
+                                    по {{ item.end_stock | date:'d-m-Y'}}</</p>
+                        <p>{{ item.description }}</p>
+                    </div>
+                </div>  
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock%}

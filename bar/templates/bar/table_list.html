@@ -1,0 +1,93 @@
+{% extends "bar/base.html" %}
+{% load staticfiles %}
+{% block title %}D.O.M{% endblock %}
+
+{% block extra_headers %}        
+<link rel="stylesheet" type="text/css" href="{% static 'bar/style_zal.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'bar/status.css' %}">
+{% endblock %}
+
+{% block content %} 
+<div class="container container-bg">
+    <div class="row row1">
+        <div class="col-sm-10  zal-size">
+            <div class="zal">
+                {% for table in tables %}
+                <div class="list-table  table{{table.id}}" data-item="{{table.id}}"><p class="number">{{table.id}}</p></div>
+                {% endfor %}
+                <img class="image img-thumbnail" src="{% static 'images/zal.jpg' %}">
+                <div class="table-help"><span>Выберите столик, кликнув по нему.</span></div>
+                <!-- Status message -->
+                {% block status_message %}
+                    {% if message %}
+                <div class="toast-container toast-position-middle-center">
+                    <div class="toast-item-wrapper">
+                        <div class="toast-item toast-type-success">
+                            <div class="toast-item-image toast-item-image-success"></div>
+                            <div class="toast-item-close"></div>
+                            <p>{{ message }} </p>
+                        </div>
+                    </div>
+                </div>
+                    {% endif %}
+                    {% if message1 %}
+                <div class="toast-container toast-position-middle-center">
+                    <div class="toast-item-wrapper">
+                        <div class="toast-item toast-type-success">
+                            <div class="toast-item-image toast-item-image-warning"></div>
+                            <div class="toast-item-close"></div>
+                            <p>{{ message1 }} </p>
+                        </div>
+                    </div>
+                </div>
+                    {% endif %}
+               {% endblock %}
+                <!-- END status message-->
+            </div>
+        </div>
+    </div>
+        <div class="form-wrapper">
+            <div class="form">
+                <form  method="post" action="{% url 'send_mail' %}">{% csrf_token %}          
+                    <div class="place_filters">
+                        <div class="filters_sort place_filters_detail">
+                            {{ form.non_field_errors }}
+                            <div style="color: red; text-align: center;"> 
+                                    {{ form.date.errors }}
+                                    {{ form.name.errors }}
+                                    {{ form.email.errors }}
+                            </div>
+                            <ul> 
+                                <li>
+                                    <label class="calendar">
+                                    {{ form.date}} 
+                                    </label>
+                                </li>
+                                <li class="padding_li"> 
+                                    {{form.table}}
+                                </li>
+                                <li>
+                                    <label class="username" >
+                                    {{ form.name }}
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="email">
+                                    {{form.email}}
+                                    </label>
+                                </li>
+                                <li class="padding_li">
+                                    <div class="btn" id="button-login">
+                                        <button type="submit" name="order_button" class="btn btn_new btn-danger">Забронировать</button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="skidka"><span>Скидка: 20%</span> от общего счета на все меню и напитки.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

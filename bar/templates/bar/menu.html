@@ -1,0 +1,154 @@
+{% extends "bar/base.html" %}
+{% load staticfiles %}
+{% block title %}D.O.M{% endblock %}
+
+{% block extra_headers %} 
+<link rel="stylesheet" type="text/css" href="{% static 'bar/menu.css' %}"> 
+{% endblock %}
+
+{% block content %} 
+<a id="up" href="#modtitle"  style="display: block"></a>
+<div class="container">
+    <div class="mod">
+        <div class="modtitle" id="modtitle">Шеф-повар рекомендует </div>
+        <div class="modcontent">
+            <div class="custom">
+                <div class="row">
+                    {% for item in categories %}
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 ienlarger">
+                        <a href="#category{{ item.id}}"><span class="name{{item.id}}">{{item.name}}</span><img class="resize_thumb" src="{{ item.image.url }}" alt="Шеф-повар рекомендует"><span><img  src="{{ item.image.url }}" width="300px" height="300px" alt="Шеф-повар рекомендует"></span></a>
+                    </div>
+                    {% endfor %}                    
+                </div>
+            </div>
+            <p class="text-center menu-top"><a class="btn btn-4 btn-4c icon-arrow-right" href="{% static 'files/menu.pdf' %}">Меню *pdf</a></p>
+        </div>
+    </div>
+</div>
+<div class="category">
+    <div class="container">
+        <div class="row">
+                <div class="col-xs-12 col-sm-12 category-name category1" id="category1"><h1>Горячие блюда</h1></div>
+                <div class="bluda-category">
+                {% for food in foods %}
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="col-xs-6 col-sm-4 menu-pad">
+                            <img src="{{ food.image.url }}" width="150px" height="150px" class="img-circle">   
+                        </div>
+                        <div class="col-xs-6 col-sm-4 menu-pad">
+                            <h2>{{ food.name}}</h2>
+                            <p class="menu-description">{{food.description}}</p>
+                        </div>
+                        <div class="col-xs-6 col-sm-4 menu-pad menu-portion">
+                            <h4>{{food.portion}} гр./мл <span>{{food.price}} грн.</span></h4>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+                <div class="col-xs-12 col-sm-12 category-name category2" id="category2"><h1>Cупы</h1></div>
+                <div class="bluda-category">
+                {% for food in foods2 %}
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="col-xs-6 col-sm-4 menu-pad">
+                            <img src="{{ food.image.url }}" width="150px" height="150px" class="img-circle">   
+                        </div>
+                        <div class="col-xs-6 col-sm-4 menu-pad">
+                            <h2>{{ food.name}}</h2>
+                            <p class="menu-description">{{food.description}}</p>
+                        </div>
+                        <div class="col-xs-6 col-sm-4 menu-pad menu-portion">
+                            <h4>{{food.portion}} гр./мл <span>{{food.price}} грн.</span></h4>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+                <div class="col-xs-12 col-sm-12 category-name category3" id="category3"><h1>Салаты</h1></div>
+                <div class="bluda-category">
+                {% for food in foods3 %}
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="col-xs-6 col-sm-4 menu-pad">
+                            <img src="{{ food.image.url }}" width="150px" height="150px" class="img-circle">   
+                        </div>
+                        <div class="col-xs-6 col-sm-4 menu-pad">
+                            <h2>{{ food.name}}</h2>
+                            <p class="menu-description">{{food.description}}</p>
+                        </div>
+                        <div class="col-xs-6 col-sm-4 menu-pad menu-portion">
+                            <h4>{{food.portion}} гр./мл <span>{{food.price}} грн.</span></h4>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+                <div class="col-xs-12 col-sm-12 category-name category4" id="category4"><h1>Десерты</h1></div>
+                <div class="bluda-category">
+                {% for food in foods4 %}
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="col-xs-6 col-sm-4 menu-pad">
+                            <img src="{{ food.image.url }}" width="150px" height="150px" class="img-circle">   
+                        </div>
+                        <div class="col-xs-6 col-sm-4 menu-pad">
+                            <h2>{{ food.name}}</h2>
+                            <p class="menu-description">{{food.description}}</p>
+                        </div>
+                        <div class="col-xs-6 col-sm-4 menu-pad menu-portion">
+                            <h4>{{food.portion}} гр./мл <span>{{food.price}} грн.</span></h4>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+                <div class="col-xs-12 col-sm-12 category-name category5" id="category5"><h1>Смузи и соки</h1></div>
+                <div class="bluda-category">
+                {% for food in foods5 %}
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="col-xs-6 col-sm-4 menu-pad">
+                            <img src="{{ food.image.url }}" width="150px" height="150px" class="img-circle">   
+                        </div>
+                        <div class="col-xs-6 col-sm-4 menu-pad">
+                            <h2>{{ food.name}}</h2>
+                            <p class="menu-description">{{food.description}}</p>
+                        </div>
+                        <div class="col-xs-6 col-sm-4 menu-pad menu-portion">
+                            <h4>{{food.portion}} гр./мл <span>{{food.price}} грн.</span></h4>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+                <div class="col-xs-12 col-sm-12 category-name category6" id="category6"><h1>Горячие напитки</h1></div>
+                <div class="bluda-category">
+                {% for food in foods6 %}
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="col-xs-6 col-sm-4 menu-pad">
+                            <img src="{{ food.image.url }}" width="150px" height="150px" class="img-circle">   
+                        </div>
+                        <div class="col-xs-6 col-sm-4 menu-pad">
+                            <h2>{{ food.name}}</h2>
+                            <p class="menu-description">{{food.description}}</p>
+                        </div>
+                        <div class="col-xs-6 col-sm-4 menu-pad menu-portion">
+                            <h4>{{food.portion}} гр./мл <span>{{food.price}} грн.</span></h4>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+                <div class="col-xs-12 col-sm-12 category-name category7" id="category7"><h1>Бизнес-ланч</h1></div>
+                <div class="bluda-category">
+                {% for food in foods7 %}
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="col-xs-6 col-sm-4 menu-pad">
+                            <img src="{{ food.image.url }}" width="150px" height="150px" class="img-circle">   
+                        </div>
+                        <div class="col-xs-6 col-sm-4 menu-pad">
+                            <h2>{{ food.name}}</h2>
+                            <p class="menu-description">{{food.description}}</p>
+                        </div>
+                        <div class="col-xs-6 col-sm-4 menu-pad menu-portion">
+                            <h4>{{food.portion}} гр./мл <span>{{food.price}} грн.</span></h4>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

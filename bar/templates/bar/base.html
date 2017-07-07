@@ -1,0 +1,79 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <meta http-equiv=Content-Type content="text/html;charset=UTF-8">
+        <meta name="description" value=""/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> {% block title %}{% endblock %}</title>
+    <!-- link Bootstrap 3-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Rouge+Script" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Marck+Script" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{% static 'bar/base.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'bar/footer.css' %}">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+            crossorigin="anonymous"></script>   
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="{% static 'bar/jquery.js' %}"></script>
+        <script>
+            $(function(){
+                $("#datepicker").datepicker();
+            });
+        </script>
+        <script>
+            $(function(){
+                $("#datepicker2").datepicker({ dateFormat: 'yy-mm-dd', minDate: 'toDay()'});
+            });
+        </script>
+        {% block extra_headers %}{% endblock %}
+    </head>
+    <body>
+        <div class="site-wrapper">
+            <div class="site-wrapper-inner">
+                <div class="cover-container">
+                    <div class="masthead clearfix">
+                        <div class="inner">
+                            <div class="masthead-brand"><img src="{% static 'images/vegan.png' %}" width="60px" height="60px"></div>
+                            <p class="phone"><img src="{% static 'images/mobile.png' %}">+3 (068) 235-13-73</p>
+                            <nav>
+                                <ul class="nav masthead-nav">
+                                    <li {% if request.path == '/' %} class="active"{% endif %}><a href="{% url 'home' %}">Главная</a></li>
+                                    <li {% if '/table_list' in request.path %} class="active"{% endif %}><a href="{% url 'table_list' %}">Бронь столика</a></li>
+                                    <li {% if '/information' in request.path %} class="active"{% endif %}><a href="{% url 'information' %}">О нас</a></li>
+                                    <li {% if '/menu' in request.path %} class="active"{% endif %}><a href="{% url 'menu' %}">Меню</a></li>
+                                    <li {% if '/stock' in request.path %} class="active"{% endif %}><a href="{% url 'stock' %}">Акции</a></li>
+                                    <li class="time" data-title="Работаем круглосуточно"><img src="{% static 'images/24.png' %}" width="25" height="25"></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+                {% block content %} {% endblock %}
+<footer class="footer">
+    <div class="row">
+        <div class="col-md-4">
+            <address>
+                <strong>г.Кривой Рог</strog><br>
+                пр. Металлургов, 31<br>
+                <abbr><a href="mailto:denisenko.s.kr@gmail.com">denisenko.s.kr@gmail.com</a><br></abbr>
+            </address>
+        </div>
+        <div class="col-md-4 phone-footer"><abbr><img src="{% static 'images/mobile.png' %}"></abbr> +3 (068) 235-13-73</div>
+        <div class="col-md-4 footer-name">
+            <a href='https://www.facebook.com/sergey.denisenko.7'><img src="{% static 'images/fb.png' %}"  height="30px" width="30px"></a>
+            <a href='https://www.facebook.com/sergey.denisenko.7'><img src="{% static 'images/vk.png' %}"  height="30px" width="30px"></a>
+            <a href='https://www.facebook.com/sergey.denisenko.7'><img src="{% static 'images/tw.png' %}"  height="30px" width="30px"></a>
+            <address>
+               <p> 2017 <span> Vegan</span></p>
+            </address>
+        </div>
+    </div>
+</footer>
+    </body>
+    {% block script_bottom %}
+
+    {% endblock %}
+</html>

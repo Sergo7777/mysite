@@ -1,0 +1,12 @@
+
+default_app_config = 'bar.apps.BarConfig'
+# myapp/apps.py
+
+from django.apps import AppConfig
+
+class MyAppConfig(AppConfig):
+    name = 'bar'
+
+    def ready(self):
+        # Makes sure all signal handlers are connected
+        from . import handlers  # noqa

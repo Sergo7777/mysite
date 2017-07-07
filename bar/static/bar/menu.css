@@ -1,0 +1,294 @@
+.modtitle{
+   margin-bottom: 5%;
+   font-size: 55px;
+   padding-top: 5%;
+   color: black;
+}
+
+
+
+/* Код увеличителя начинается здесь */
+/* Если ваше изображение не связано ссылкой с другой страницей, оставьте ссылку в виде <a href="#nogo"> 
+Иначе увеличительне будет работать в IE6 */
+
+.ienlarger {
+	float: left;
+	clear: none; /* Можно установить left или right по необходимости */
+	padding-bottom: 5px; /* Расстояние между миниатюрами. Лучше не трогать данное поле */
+	padding-right: 5px; /* Расстояние между миниатюрами и окружающим текстом */
+}
+
+.ienlarger a { 
+	display:block;
+	text-decoration: none;
+/* Если добавить правило cursor:default;, то отключится курсор в виде руки */
+}
+
+.ienlarger a:hover{ /* Не надо изменять тип позиционирования */
+ 	position:relative;
+}
+
+
+.ienlarger a span {  /* Для большого изображения и названия */
+	position: absolute;
+	display:none;
+	color: black; /* Текст названия */
+	text-decoration: none;
+    font-family: 'Marck Script', cursive;
+    font-weight: 500;
+    font-size: 24px;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 13px;
+	padding-left: 10px;
+
+}
+
+.ienlarger img { /* Для IE, чтобы не было рамки вокруг ссылки */
+border-width: 0;
+
+}
+
+.ienlarger a:hover span { 
+	display:block;
+	top: 0px; 
+	left: -10px; 
+	z-index: 200;
+	
+/* Если добавить правило cursor:default;, то отключится курсор в виде руки на большом изображении */
+}
+.ienlarger .name1{ 
+  display:block;
+  position: absolute;
+  top: 30px; 
+  left: 15%; 
+  z-index: 200;
+  font-size: 44px;
+  font-weight: 700;
+}
+.ienlarger .name2{ 
+  display:block;
+  position: absolute;
+  top: 30px; 
+  left: 30%; 
+  z-index: 200;
+  font-size: 44px;
+  font-weight: 700;
+
+}
+.ienlarger .name3{ 
+  display:block;
+  position: absolute;
+  top: 30px; 
+  left: 25%; 
+  z-index: 200;
+  font-size: 44px;
+  font-weight: 700;
+
+}
+.ienlarger .name4{ 
+  display:block;
+  position: absolute;
+  top: 30px; 
+  left: 25%; 
+  z-index: 200;
+  font-size: 44px;
+  font-weight: 700;
+
+}
+.ienlarger .name5{ 
+  display:block;
+  position: absolute;
+  top: 30px; 
+  left: 15%; 
+  z-index: 200;
+  font-size: 44px;
+  font-weight: 700;
+
+}
+.ienlarger .name6{ 
+  display:block;
+  position: absolute;
+  top: 30px; 
+  left: 10%; 
+  z-index: 200;
+  font-size: 44px;
+  font-weight: 700;
+
+}
+.ienlarger .name7{ 
+  display:block;
+  position: absolute;
+  top: 30px; 
+  left: 10%; 
+  z-index: 200;
+  font-size: 44px;
+  font-weight: 700;
+}
+
+.resize_thumb {
+    height: 260px;
+    padding-top: 15%;
+    width: 270px;
+}
+
+.container{
+width: 100%;
+}
+.menu-top{
+   padding: 9%;
+}
+/* Button 4c */
+.btn-4c:before {
+    left: 70%;
+    opacity: 0;
+    top: 0;
+}
+
+.btn-4c:hover:before {
+    left: 80%;
+    opacity: 1;
+}
+
+/* Button 4 */
+.btn-4 {
+    border-radius: 50px;
+    border: 2px solid #dd2a1b;
+    overflow: hidden;
+}
+
+.btn-4:active {
+    border-color: #17954c;
+    color: #17954c;
+}
+
+.btn-4:hover {
+    background: #dd2a1b;
+}
+
+.btn-4:before {
+    position: absolute;
+    height: 100%;
+    font-size: 125%;
+    line-height: 3.5;
+    color: #fff;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.btn-4:active:before {
+    color: #17954c;
+}
+
+
+.btn:before,
+.icon-heart:after,
+.icon-star:after,
+.icon-plus:after,
+.icon-file:before {
+
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* General button style (reset) */
+.btn {
+
+    font-size: inherit;
+    color: #dd2a1b;
+    background: white;
+    cursor: pointer;
+    padding: 25px 80px;
+    display: inline-block;
+    margin: 15px 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.btn:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.btn.focus, .btn:focus, .btn:hover{
+    color:#fff;
+}
+
+
+/* Category */
+
+.category{
+  height: auto;
+}
+.category-name{
+  height: auto;
+  padding-top: 1%;
+}
+.category1{
+  background: #9e5353;
+}
+.category2{
+  background: #f5984d;
+}
+.category3{
+  background: #a8d151;
+}
+.category4{
+  background: #b9a3c2;
+}
+.category5{
+  background: #e7cd47;
+}
+.category6{
+  background: #856a50;
+}
+.category7{
+  background: yellow;
+}
+.menu_all{
+  text-align: center;
+}
+.row .bluda-category{
+  background: #fff;
+  color: #1b2e15;
+}
+.row .menu-description{
+  text-align: left;
+  color: #1b2e15;
+}
+.menu-pad{
+  padding: 5%;
+  color: #1b2e15;
+}
+.menu-pad span{
+  color: #1b2e15;
+  padding-left: 20px;
+}
+
+#up {
+    background: rgba(0, 0, 0, 0) url("../images/up.png") no-repeat scroll 0 0;
+    bottom: 40px;
+    cursor: pointer;
+    display: none;
+    height: 65px;
+    position: fixed;
+    right: 50px;
+    width: 65px;
+    z-index: 1000;
+}

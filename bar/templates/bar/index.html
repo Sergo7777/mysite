@@ -1,0 +1,53 @@
+{% extends "bar/base.html" %}
+{% load staticfiles %}
+{% block title %}D.O.M{% endblock %}
+{% block extra_headers %}
+<link rel="stylesheet" type="text/css" href="{% static 'bar/btn.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'bar/slides.css' %}">      
+
+{% endblock %} 
+{% block content %}  
+
+<div id="block-for-slider">
+    <div id="viewport">
+        <div class="cover">
+            <h1 class="cover-heading"><span class="size">Кафе-бар </span><span class="dom"> VEGAN</span> </h1>
+            <span class="lead">Живи со вкусом</span><br>
+            <a href="{% url 'table_list' %}" class="btn btn-4 btn-4c icon-arrow-right">Забронировать столик</a>
+        </div>
+        <ul id="slidewrapper">
+            <li class="slide"><img src="{% static 'images/restoran5.jpg' %}" alt="1" class="slide-img"></li>
+            <li class="slide"><img src="{% static 'images/restoran7.jpg' %}" alt="2" class="slide-img"></li>
+            <li class="slide"><img src="{% static 'images/restoran4.jpg' %}" alt="3" class="slide-img"></li>
+            <li class="slide"><img src="{% static 'images/restoran6.jpg' %}" alt="4" class="slide-img"></li>
+        </ul>
+            <!--
+            <div id="prev-next-btns">
+                <div id="prev-btn"></div>
+                <div id="next-btn"></div>
+            </div> 
+            -->
+        <ul id="nav-btns">
+            <li class="slide-nav-btn"></li>
+            <li class="slide-nav-btn"></li>
+            <li class="slide-nav-btn"></li>
+            <li class="slide-nav-btn"></li>
+        </ul>
+    </div>
+</div>
+<div class="contain">
+    <div class="row bg">
+        <div class="col-xs-8 col-xs-offset-2 col-md-8 col-md-offset-2 dom-info"> 
+            <h2>Дорогие друзья! </h2>
+            <p>Мы создали этот ресторан для того, чтобы поделиться с вами своим видением мира питания. Надеемся, что оно станет своего рода путеводителем в мир здоровой и естественной пищи. Наша цель — сохранить целостность и первозданность каждого продукта, раскрыть гармонию вкуса и принести гастрономическое наслаждение, при этом используя исключительно натуральные свежие и экологически чистые продукты. </p>
+            <p>Все, что мы готовим и с большой любовью подаем вам проходит минимальную термическую обработку, либо не проходит ее вообще. И в этом — наша философия — позволить Вашему организму на всю мощь «подпитаться энергией воды, солнца и земли, которую вобрали в себя фрукты, овощи, ягоды, орехи, семена или травы. </p>
+            <p>Мы знаем, что существует крепкий стереотип о том, что полезная еда не может быть вкусной. Мы хотим показать противоположное — что натуральная, свежая еда может быть не только питательной, но и необыкновено вкусной!
+            </p>
+            <p>Приглашаем вас вместе с нами открыть вкус природы, ее красоты и гармонии и вместе с нами заботиться о своем здоровье.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block script_bottom %}
+    <script src="{% static 'bar/slides.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,42 @@
+ {% extends "bar/base.html" %}
+{% load staticfiles %}
+{% block title %}D.O.M{% endblock %}
+
+{% block extra_headers %} 
+<link rel="stylesheet" type="text/css" href="{% static 'bar/info-content.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'bar/video.css' %}"> 
+{% endblock %}
+
+{% block content %} 
+
+<div class="fullscreen-bg">
+    <div class="overlay">
+        <div class="info-content ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-6 col-xs-offset-1 col-md-10 col-md-offset-1 margin-top"> 
+                        <p class="osn-text">Любовь — это наша философия и главный ингредиент на нашей кухне. </p>    
+                        <p class="header-text">Пусть пища будет твоим лекарством</p>
+
+                        <p >Мы готовим вкусную и полезную растительную пищу без использования: </p> 
+                            <p class="text-left"> — генетически модифицированных продуктов </p>
+                            <p class="text-left">— усилителей вкуса </p>
+                            <p class="text-left">— искусственных красителей </p>
+                        <p class="header-text">Кто мы? </p>
+                        <p>Мы — команда единомышленников, которые искренне хотят изменить мир к лучшему. В нашем коллективе работают только этические веганы, и мы действительно вкладываем душу в то, что делаем. Мы надеемся, что посетив наше кафе многие люди поймут, что растительная пища разнообразная, питательная и очень вкусная. </p>
+                        <p class="header-text">Животные — наши друзья </p> 
+                        <p>Все наши блюда на 100% веганские, а значит вы не найдете в них ни одного продукта животного происхождения, включая мед. </p>
+                        <p class="header-text">Нам не все равно </p>
+                        <p>Гости — наши дорогие друзья, поэтому мы всегда открыты вашим пожеланиями, а к замечаниям относимся с большим вниманием. Мы хотим знать ваше честное мнение — нам не все равно. Оставляйте свои отзывы на наших страничках в социальных сетях или пишите через форму обратной связи на сайте.</p><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <video loop muted autoplay poster="{% static 'images/Meeting-Room.jpg' %}" class="fullscreen-bg__video">
+        <source src="{% static 'media/Meeting-Room.mp4' %}" type="video/mp4" />
+        <source src="{% static 'media/Meeting-Room.webm' %}" type="video/webm" />
+    </video>
+</div>
+{% endblock %}
+   

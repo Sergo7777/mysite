@@ -1,0 +1,22 @@
+.footer{
+  padding-top: 15px;
+  background: #000;
+  font-size: 16px;
+  line-height: 16px;
+  font-family: "Roboto";
+  color: white;
+}
+.footer-name span{
+  font-family: 'Rouge Script', cursive;
+  font-weight: 700;
+  color: white;  
+  font-size: 20px;
+}
+.footer-name{
+  bottom: 0;
+  padding-top: 1%;
+
+}
+.phone-footer{
+padding-top: 2%;
+}
