@@ -76,7 +76,7 @@ def send_mail(request):
                 except BadHeaderError:
                     return HttpResponse('Invalid header found.')
                 order.save()
-            form = OrderForm.get(['date'])
+            form = OrderForm()
             return render(request, 'bar/table_list.html', {'form':form, 'tables': tables, 'date':date, 'message': message})
         else:
             message1 = 'Проверьте, пожалуйста, правильность заполнения данных.'
