@@ -90,8 +90,16 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
-
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'mysite_db',
+        'USER': 'admin',
+        'PASSWORD': 'admin111',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
 
 
 
@@ -134,7 +142,7 @@ USE_TZ = True
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
-MEDIA_URL = '/media/'
+MEDIA_URL = './media/'
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 STATIC_URL = '/static/'
@@ -151,15 +159,5 @@ WEBPACK_LOADER = {
     }
 }
 
-import dj_database_url
-DATABASES = { 'default': dj_database_url.config() }
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-ALLOWED_HOSTS = ['*']
-
 DEBUG = False
-
-try:
-    from .local_settings import *
-except ImportError:
-    pass
+ALLOWED_HOSTS = ['*']
