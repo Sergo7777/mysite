@@ -160,4 +160,4 @@ WEBPACK_LOADER = {
 }
 
 DEBUG = False
-ALLOWED_HOSTS = ['*']
+
