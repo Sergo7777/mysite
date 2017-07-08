@@ -96,7 +96,7 @@ DATABASES = {
         'NAME': 'mysite_db',
         'USER': 'admin',
         'PASSWORD': 'admin111',
-        'HOST': 'localhost',
+        'HOST': '*',
         'PORT': '',
     }
 }
