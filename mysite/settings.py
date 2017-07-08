@@ -25,6 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'b3w#h7z7xg1&-cj4c%0wm2ini^t2p*s&4s=o0(#ar0&r-okms&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
@@ -131,6 +132,7 @@ USE_L10N = True
 USE_TZ = True
 
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -154,7 +156,14 @@ WEBPACK_LOADER = {
 }
 
 import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+DATABASES = { 'default': dj_database_url.config() }
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-ALLOWED_HOSTS = [".herokuapp.com", ".researchthroughdesign.org"]
+ALLOWED_HOSTS = ['*']
+
+DEBUG = False
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
