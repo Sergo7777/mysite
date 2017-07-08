@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'b3w#h7z7xg1&-cj4c%0wm2ini^t2p*s&4s=o0(#ar0&r-okms&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
@@ -151,15 +151,11 @@ WEBPACK_LOADER = {
     }
 }
 
-import dj_database_url
-DATABASES = { 'default': dj_database_url.config() }
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+ import dj_database_url
 
+  DATABASES = {
+      'default': dj_database_url.config(
+          default='sqlite:////{0}'.format(os.path.join(BASE_DIR, 'db.sqlite3'))
+      )
+  }
 ALLOWED_HOSTS = ['*']
-
-DEBUG = False
-
-try:
-    from .local_settings import *
-except ImportError:
-    pass
