@@ -64,6 +64,7 @@ def send_mail(request):
             subject = ('Заказ стола в D.O.M')
             order = form.save(commit=False)
             date = form.cleaned_data['date']
+            print(date)
             email = form.cleaned_data['email']
             name = form.cleaned_data['name']
             table = form.cleaned_data['table']
@@ -77,7 +78,7 @@ def send_mail(request):
                     return HttpResponse('Invalid header found.')
                 order.save()
             form = OrderForm()
-            return render(request, 'bar/table_list.html', {'form':form, 'tables': tables, 'date':date, 'message': message})
+            return render(request, 'bar/table_list.html', {'form':form, 'tables': tables, 'message': message})
         else:
             message1 = 'Проверьте, пожалуйста, правильность заполнения данных.'
             form = OrderForm(request.POST)
