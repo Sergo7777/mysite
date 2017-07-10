@@ -18,7 +18,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 DEBUG = False
-ALLOWED_HOSTS = ['*']
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -98,11 +98,10 @@ DATABASES = {
         'NAME': 'bar',
         'USER': 'admin',
         'PASSWORD': 'admin111',
-        'HOST': '127.0.0.1',
+        'HOST': '*',
         'PORT': '5432',
     }
 }
-TIME_ZONE = None
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -161,6 +160,3 @@ WEBPACK_LOADER = {
 }
 
 
-import dj_database_url
-DATABASES = {'default': dj_database_url.config(default='bar')}
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
