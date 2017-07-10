@@ -98,8 +98,8 @@ DATABASES = {
         'NAME': 'bar',
         'USER': 'admin',
         'PASSWORD': 'admin111',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'HOST': '',
+        'PORT': '',
     }
 }
 TIME_ZONE = None
