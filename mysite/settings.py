@@ -99,7 +99,7 @@ DATABASES = {
         'USER': 'admin',
         'PASSWORD': 'admin111',
         'HOST': '',
-        'PORT': '',
+        'PORT': '5432',
     }
 }
 TIME_ZONE = None
