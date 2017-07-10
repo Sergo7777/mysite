@@ -102,6 +102,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+TIME_ZONE = None
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
