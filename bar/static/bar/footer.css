@@ -1,7 +1,7 @@
 .footer{
   padding-top: 15px;
   background: #000;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 16px;
   font-family: "Roboto";
   color: white;
@@ -15,8 +15,4 @@
 .footer-name{
   bottom: 0;
   padding-top: 1%;
-
-}
-.phone-footer{
-padding-top: 2%;
 }
