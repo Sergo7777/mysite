@@ -1,0 +1,27 @@
+.comment-body{
+  background: #f4e8e8;
+  margin-left: -33px;
+  margin-right: -33px;
+}
+.com-pad{
+  margin: 0 20px;
+}
+.new-comment{
+  border: 2px solid #000;
+  background: #b9a3c2;
+  margin-top: 4%;
+  margin-bottom: 4%;
+}
+.comment-body img{
+  padding: 20px 0;
+  
+}
+.comment-id{
+  border-bottom: 3px solid grey;
+  margin-top: 5px;
+  color: #39361c;
+}
+.comment-id p{
+  color: #39361c;
+  padding: 5px 20px;
+}

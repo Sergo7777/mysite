@@ -14,3 +14,14 @@ class OrderForm(forms.ModelForm):
             'email': forms.TextInput(attrs={'placeholder': 'Ваш email'}),
         }
         fields = ['date', 'name', 'email', 'table']
+
+
+class CommentForm(forms.ModelForm):
+
+    class Meta:
+        model = Comment
+        widgets = {
+            'text': forms.Textarea(attrs={'rows':"6", 'class':"form-control"}),
+            'author': forms.TextInput(attrs={'placeholder': 'Ваше имя', 'class':"form-control"}),
+        }
+        fields = ('author', 'text',)

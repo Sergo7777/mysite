@@ -10,9 +10,9 @@ from django import forms
 import datetime
 from django.core.urlresolvers import reverse
 
-from .forms import OrderForm
+from .forms import OrderForm, CommentForm
 
-from .models import Order, Table, Stock, CategoryMenu, Food
+from .models import Order, Table, Stock, CategoryMenu, Food, Comment
 import datetime
 # Create your views here.
 def home(request):
@@ -84,3 +84,23 @@ def send_mail(request):
             message1 = 'Проверьте, пожалуйста, правильность заполнения данных.'
             form = OrderForm(request.POST)
         return render(request, 'bar/table_list.html', {'form':form, 'tables': tables, 'message1': message1})
+
+def comments(request):
+    comments = Comment.objects.all()
+    form = CommentForm()
+    return render(request, 'bar/comments.html', {'comments': comments, 'form': form})
+
+def add_comment(request):
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            author = form.cleaned_data['author']
+            text = form.cleaned_data['text']
+            comment.save()
+            return redirect('comments')
+    else:
+        form = CommentForm()
+    return render(request, 'bar/comments.html', {'form': form})
+
+    

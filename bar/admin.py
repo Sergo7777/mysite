@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Table, Order, Stock, CategoryMenu, Food
+from .models import Table, Order, Stock, CategoryMenu, Food, Comment
 class TableAdmin(admin.ModelAdmin):
 	list_display = ['id', 'seats',]
 
@@ -16,9 +16,12 @@ class FoodAdmin(admin.ModelAdmin):
 
 class CategoryMenuAdmin(admin.ModelAdmin):
 	list_display = ['id',  'name', 'image']
+class CommentAdmin(admin.ModelAdmin):
+	list_display = ['id', 'author', 'text']
 
 admin.site.register(Table, TableAdmin)
 admin.site.register(Order, OrderAdmin)
 admin.site.register(Stock, StockAdmin)
 admin.site.register(Food, FoodAdmin)
 admin.site.register(CategoryMenu, CategoryMenuAdmin)
+admin.site.register(Comment, CommentAdmin)

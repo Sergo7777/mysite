@@ -37,6 +37,7 @@
                                     <li {% if '/table_list' in request.path %} class="active"{% endif %}><a href="{% url 'table_list' %}">Бронь столика</a></li>
                                     <li {% if '/information' in request.path %} class="active"{% endif %}><a href="{% url 'information' %}">О нас</a></li>
                                     <li {% if '/menu' in request.path %} class="active"{% endif %}><a href="{% url 'menu' %}">Меню</a></li>
+                                    <li {% if '/comments' in request.path %} class="active"{% endif %}><a href="{% url 'comments' %}">Отзывы</a></li>
                                     <li {% if '/stock' in request.path %} class="active"{% endif %}><a href="{% url 'stock' %}">Акции</a></li>
                                     <li class="time" data-title="Работаем круглосуточно"><img src="{% static 'images/time2.png' %}" width="40" height="40"></li>
                                 </ul>

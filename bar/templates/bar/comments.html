@@ -1,0 +1,50 @@
+{% extends "bar/base.html" %}
+{% load staticfiles %}
+{% block title %}Vegan{% endblock %}
+
+{% block extra_headers %}        
+<link rel="stylesheet" type="text/css" href="{% static 'bar/comments.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row comment-body">
+        <div class="img">
+           <img src="{% static 'images/dom.png' %}">
+        </div>
+        <div class="comment сol-sm-6 сol-sm-offset-3 col-md-8 col-md-offset-2">
+            {% for comment in comments %}
+            <div class="comment-id сol-sm-6 сol-sm-offset-3">
+                <div class="date">{{ comment.created_date|date:"d-m-Y"}}</div>
+                <strong>{{ comment.author }}</strong>
+                <p class="com-pad">{{ comment.text }}</p>
+            </div>
+            {% empty %}
+            <h3>Будь первым, кто оставит комментарий!</h3>
+            {% endfor %}
+        </div>
+        <div class="new-comment col-sm-6 col-sm-offset-3">
+            <h3>Новый комментарий</h3>
+            <form class="form-horizontal" method="post" action="{% url 'add_comment' %}">{% csrf_token %} 
+                <div class="form-group">
+                    <label  class="col-sm-4 control-label">Ваше имя: </label>
+                    <div class="col-sm-8">
+                        {{form.author}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label  class="col-sm-4 control-label">Комментарий: </label>
+                    <div class="col-sm-8">
+                        {{form.text}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-success">Отправить</button>
+                    </div>
+                </div> 
+            </form>
+        </div>
+    </div>
+</div> 
+{% endblock%}
