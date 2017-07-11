@@ -3,6 +3,10 @@
   margin-left: -33px;
   margin-right: -33px;
 }
+.header-com{
+  text-align: left;
+}
+
 .com-pad{
   margin: 0 20px;
 }

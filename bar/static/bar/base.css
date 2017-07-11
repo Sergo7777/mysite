@@ -63,7 +63,8 @@ a:hover {
 }
 .time{
   display: inline-block; /* Строчно-блочный элемент */
-  position: relative; /* Относительное позиционирование */
+  position: relative;
+  margin-top: 12px; /* Относительное позиционирование */
    }
 .time:hover::after {
   content: attr(data-title);
@@ -72,9 +73,10 @@ a:hover {
   color: #fff;
   position: absolute;
   top: 44px;
-  left: -30px;
+  left: -10px;
   z-index: 2; 
   font-size: 12px;
+  color: #f75e07;
 }
 /* FOoter*/
 
@@ -160,7 +162,7 @@ body {
 }
 .phone{
   float: left;
-  margin: 1% 8%;
+  margin: 15px 8%;
   font-size: bold;
   font-family: 'Roboto';
   font-weight: 700;

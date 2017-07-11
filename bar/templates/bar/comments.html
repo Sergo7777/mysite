@@ -1,6 +1,6 @@
 {% extends "bar/base.html" %}
 {% load staticfiles %}
-{% block title %}Vegan{% endblock %}
+
 
 {% block extra_headers %}        
 <link rel="stylesheet" type="text/css" href="{% static 'bar/comments.css' %}">
@@ -13,6 +13,7 @@
            <img src="{% static 'images/dom.png' %}">
         </div>
         <div class="comment сol-sm-6 сol-sm-offset-3 col-md-8 col-md-offset-2">
+            <h1 class="header-com">Ваши отзывы:</h1>
             {% for comment in comments %}
             <div class="comment-id сol-sm-6 сol-sm-offset-3">
                 <div class="date">{{ comment.created_date|date:"d-m-Y"}}</div>
