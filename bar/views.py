@@ -40,7 +40,7 @@ def menu(request):
 def table_list(request):
     form = OrderForm()
     tables = Table.objects.all()
-    return render(request, 'bar/table_list.html', {'form': form, 'tables':tables, } )
+    return render(request, 'bar/table_list.html', {'form': form, 'tables':tables, })
 
 def information(request):
     return render(request, 'bar/information.html', )
@@ -77,7 +77,8 @@ def send_mail(request):
                 except BadHeaderError:
                     return HttpResponse('Invalid header found.')
                 order.save()
-            form = OrderForm()
+            date = date.strftime('%Y-%m-%d')
+            form = OrderForm(initial={'date': date})
             return render(request, 'bar/table_list.html', {'form':form, 'tables': tables, 'message': message})
         else:
             message1 = 'Проверьте, пожалуйста, правильность заполнения данных.'
