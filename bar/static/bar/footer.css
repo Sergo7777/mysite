@@ -16,3 +16,8 @@
   bottom: 0;
   padding-top: 1%;
 }
+.footer h1{
+  font-family: 'Rouge Script', cursive;
+  font-weight: 700;
+  margin: 3% 0;
+}

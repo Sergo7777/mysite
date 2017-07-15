@@ -94,6 +94,7 @@ def comments(request):
     two = Comment.objects.filter(comment_like=2)
     one = Comment.objects.filter(comment_like=1)
     form = CommentForm()
+    comments = comments.reverse()
     paginator = Paginator(comments, 3) 
 
     page = request.GET.get('page')
