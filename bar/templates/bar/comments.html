@@ -10,17 +10,46 @@
 {% block content %}
 <div class="container">
     <div class="row comment-body">
-        <div class="img">
-           <img src="{% static 'images/dom.png' %}" width="300px" height="130px">
+        <div class="comment сol-sm-6 сol-sm-offset-3 col-md-8 col-md-offset-2">
+            <div class="img col-sm-4">
+               <img src="{% static 'images/dom.png' %}" width="300px" height="130px">
+            </div>
+            <div class="col-sm-6 col-sm-offset-2 diag">
+                <span class="st-span">Отлично</span>
+                <div class="progress">
+                    <span>{{five|length}}</span>
+                    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="10" style="width: {{five|length}}%;"> </div>
+                </div>
+                <span class="st-span">Хорошо</span>
+                <div class="progress">
+                    <span>{{four|length}}</span>
+                    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="10" style="width: {{four|length}}%;"></div>
+                </div>
+                <span class="st-span">Неплохо</span>
+                <div class="progress">
+                    <span>{{three|length}}</span>
+                    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="10" style="width: {{three|length}}%;"></div>
+                </div>
+                <span class="st-span">Плохо</span>
+                <div class="progress">
+                    <span>{{two|length}}</span>
+                    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="10" style="width: {{two|length}}%;"></div>
+                </div>
+                 <span class="st-span">Ужасно</span>
+                <div class="progress">
+                    <span>{{one|length}}</span>
+                    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="10" style="width: {{one|length}}%;"></div>
+                </div>
+            </div>
         </div>
         <div class="comment сol-sm-6 сol-sm-offset-3 col-md-8 col-md-offset-2">
-            <h1 class="header-com">Ваши отзывы:</h1>
+            <div><h1 class="header-com">Ваши отзывы:</h1><a class="fl btn btn-success" href="#form">Оставить отзыв</a></div>
             {% for comment in comments %}
             <div class="comment-id сol-sm-6">
                 <div class="row">
                     <div class="col-sm-2">
                         <div class="user">
-                            <img src="{{comment.image.url}}" width="90px" height="100px">
+                            <img src="{{comment.image.url}}" width="60px" height="60px">
                             <strong>{{ comment.author }}</strong> 
                         </div>
                     </div>
@@ -42,7 +71,8 @@
             <h3>Будь первым, кто оставит комментарий!</h3>
             {% endfor %}
             </div>
-            <div class="paginator">
+            <div class="comment сol-sm-6 сol-sm-offset-3 col-md-8 col-md-offset-2">
+                <div class="paginator">
                         {% if comments.has_other_pages %}
                             <nav aria-label="Page navigation">
                                 <ul class="pagination">
@@ -61,10 +91,11 @@
                                 </ul>
                             </nav>
                         {% endif %}
+                </div>
             </div>
         <div class="new-comment col-sm-6 col-sm-offset-3">
             <h3 class="text-header">Оставить отзыв</h3>
-            <form class="form-horizontal" method="post" enctype="multipart/form-data" action="{% url 'add_comment' %}">{% csrf_token %}
+            <form class="form-horizontal" id="form" method="post" enctype="multipart/form-data" action="{% url 'add_comment' %}">{% csrf_token %}
                 <div class="form-group">
                     <div class="left"><img src="{% static 'images/like.png' %}" width="20px" height="20px">Ваша общая оценка этого ресторана</div>
                 </div>

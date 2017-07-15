@@ -88,6 +88,11 @@ def send_mail(request):
 
 def comments(request):
     comments = Comment.objects.all()
+    five = Comment.objects.filter(comment_like=5)
+    four = Comment.objects.filter(comment_like=4)
+    three = Comment.objects.filter(comment_like=3)
+    two = Comment.objects.filter(comment_like=2)
+    one = Comment.objects.filter(comment_like=1)
     form = CommentForm()
     paginator = Paginator(comments, 3) 
 
@@ -101,7 +106,8 @@ def comments(request):
         # If page is out of range (e.g. 9999), deliver last page of results.
         comments = paginator.page(paginator.num_pages)
 
-    return render(request, 'bar/comments.html', {'comments': comments, 'form': form})
+    return render(request, 'bar/comments.html', {'comments': comments, 'form': form, 'five': five, 
+                                                'one': one, 'two':two, 'three': three, 'four': four})
 
 def add_comment(request):
     if request.method == "POST":
