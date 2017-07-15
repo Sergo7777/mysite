@@ -110,7 +110,9 @@ def add_comment(request):
             comment = form.save(commit=False)
             author = form.cleaned_data['author']
             text = form.cleaned_data['text']
+            image = request.FILES['image']
             comment.save()
+            form.save()
             return redirect('comments')
     else:
         form = CommentForm()

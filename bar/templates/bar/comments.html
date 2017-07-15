@@ -64,7 +64,7 @@
             </div>
         <div class="new-comment col-sm-6 col-sm-offset-3">
             <h3 class="text-header">Оставить отзыв</h3>
-            <form class="form-horizontal" method="post" action="{% url 'add_comment' %}">{% csrf_token %}
+            <form class="form-horizontal" method="post" enctype="multipart/form-data" action="{% url 'add_comment' %}">{% csrf_token %}
                 <div class="form-group">
                     <div class="likes">
                         <div class="like1" id="like1" data-item='1'></div>
