@@ -89,7 +89,7 @@ def send_mail(request):
 def comments(request):
     comments = Comment.objects.all()
     form = CommentForm()
-    paginator = Paginator(comments, 3) # Show 4 contacts per page
+    paginator = Paginator(comments, 3) 
 
     page = request.GET.get('page')
     try:
