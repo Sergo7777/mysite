@@ -4,6 +4,7 @@
 
 {% block extra_headers %}        
 <link rel="stylesheet" type="text/css" href="{% static 'bar/comments.css' %}">
+<script src="{% static 'bar/comment.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -15,28 +16,94 @@
         <div class="comment сol-sm-6 сol-sm-offset-3 col-md-8 col-md-offset-2">
             <h1 class="header-com">Ваши отзывы:</h1>
             {% for comment in comments %}
-            <div class="comment-id сol-sm-6 сol-sm-offset-3">
-                <div class="date">{{ comment.created_date|date:"d-m-Y"}}</div>
-                <strong>{{ comment.author }}</strong>
-                <p class="com-pad">{{ comment.text }}</p>
+            <div class="comment-id сol-sm-6">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="user">
+                            <img src="{{comment.image.url}}" width="170px" height="170px">
+                            <strong>{{ comment.author }}</strong> 
+                        </div>
+                    </div>
+                    <div class="col-sm-9 ">
+                        <div class="likes" id="id{{comment.comment_like}}">
+                            <div class="like1" id="l1"></div>
+                            <div class="like1" id="l2"></div>
+                            <div class="like1" id="l3"></div>
+                            <div class="like1" id="l4"></div>
+                            <div class="like1" id="l5"></div>
+                        </div>   
+                        <div class="date">{{ comment.created_date|date:"d-m-Y"}}</div>
+                        <p class="com-pad-header">"{{ comment.header }}"</p>
+                        <p class="com-pad">{{ comment.text }}</p>
+                    </div>
+                </div>
             </div>
             {% empty %}
             <h3>Будь первым, кто оставит комментарий!</h3>
             {% endfor %}
-        </div>
+            </div>
+            <div class="paginator">
+                        {% if comments.has_other_pages %}
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination">
+                                    <li>
+                                        <a aria-label="Previous" href="{% url "comments" %}?page=1&amp;">&laquo;
+                                        </a>
+                                    </li>
+                                    {% for p in comments.paginator.page_range %}
+                                    <li {% if comments.number == p %} class="active" {% endif %}>
+                                        <a href="{% url 'comments' %}?page={{ p }}&amp;">{{ p }}</a></li>
+                                    {% endfor %}
+                                    <li>
+                                        <a href="{% url 'comments' %}?page={{comments.paginator.num_pages }}&amp;">&raquo;
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        {% endif %}
+            </div>
         <div class="new-comment col-sm-6 col-sm-offset-3">
-            <h3>Новый комментарий</h3>
-            <form class="form-horizontal" method="post" action="{% url 'add_comment' %}">{% csrf_token %} 
+            <h3 class="text-header">Оставить отзыв</h3>
+            <form class="form-horizontal" method="post" action="{% url 'add_comment' %}">{% csrf_token %}
+                <div class="form-group">
+                    <div class="likes">
+                        <div class="like1" id="like1" data-item='1'></div>
+                        <div class="like1" id="like2" data-item='2'></div>
+                        <div class="like1" id="like3" data-item='3'></div>
+                        <div class="like1" id="like4" data-item='4'></div>
+                        <div class="like1" id="like5" data-item='5'></div>
+                    </div>
+                    <div id="ratingFlag" >
+                        <em id="em">Нажмите, чтобы оценить</em>
+                    </div>
+                </div>
+                {{ form.comment_like }}
                 <div class="form-group">
                     <label  class="col-sm-4 control-label">Ваше имя: </label>
                     <div class="col-sm-8">
                         {{form.author}}
+                        {{ form.author.errors }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label  class="col-sm-4 control-label">Фото: </label>
+                    <div class="col-sm-8">
+                        {{form.image}}
+                        {{ form.emage.errors }}
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label  class="col-sm-4 control-label">Заголовок: </label>
+                    <div class="col-sm-8">
+                        {{form.header}}
+                        {{ form.header.errors }}
                     </div>
                 </div>
                 <div class="form-group">
                     <label  class="col-sm-4 control-label">Комментарий: </label>
                     <div class="col-sm-8">
                         {{form.text}}
+                        {{ form.text.errors }}
                     </div>
                 </div>
                 <div class="form-group">

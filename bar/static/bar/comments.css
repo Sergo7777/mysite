@@ -6,9 +6,17 @@
 .header-com{
   text-align: left;
 }
-
+.text-header{
+  margin: 4% 0;
+}
 .com-pad{
   margin: 0 20px;
+}
+.com-pad-header{
+  margin: 0 20px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: lucida Grande;
 }
 .new-comment{
   border: 2px solid #000;
@@ -27,5 +35,69 @@
 }
 .comment-id p{
   color: #39361c;
-  padding: 5px 20px;
+  padding: 3% 5%;
+}
+/* Стили для формы*/
+
+#ratingFlag em::before {
+    border-color: transparent #00af87 transparent transparent;
+    border-style: solid;
+    border-width: 14px 13px 14px 0;
+    content: "";
+    height: 0;
+    left: -13px;
+    position: absolute;
+    top: 0;
+    width: 0;
+}
+#ratingFlag em {
+    background: #00af87 none repeat scroll 0 0;
+    color: #fff;
+    display: block;
+    font-size: 1.167em;
+    font-weight: bold;
+    height: 21px;
+    line-height: 20px;
+    margin: -6px 0 0;
+    padding: 0 10px;
+    position: relative;
+    text-align: center;
+    top: 6px;
+}
+#ratingFlag em {
+    height: 28px;
+    line-height: 19px;
+    margin-left: 20px;
+    padding: 5px 12px 5px 10px;
+    top: 4px;
+}
+#ratingFlag{
+    float: left;
+}
+.like1{
+    width: 28px;
+    height: 28px;
+    border: 2px solid #00af87;
+    border-radius: 50%;
+    float: left;
+    background: #fff;
+}
+.likes{
+    float: left;
+    margin-left: 10%;
+}
+.yes{
+  background: #00af87;
+  border: 2px solid #fff;
+}
+.user img{
+    display: inline-block;
+    border-radius: 50%;
+}
+.date{
+  padding-top: 1%;
+}
+.yes1{
+  background: #00af87;
+  border: 2px solid #fff;
 }

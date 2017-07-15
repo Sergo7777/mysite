@@ -21,7 +21,10 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         widgets = {
-            'text': forms.Textarea(attrs={'rows':"6", 'class':"form-control"}),
+            'text': forms.Textarea(attrs={'rows':"6", 'class':"form-control", 'placeholder': 'Комментарий...'}),
             'author': forms.TextInput(attrs={'placeholder': 'Ваше имя', 'class':"form-control"}),
+            'header': forms.TextInput(attrs={'placeholder': 'Заголовок Вашего отзыва', 'class':"form-control"}),
+            'comment_like': forms.TextInput(attrs={'id': 'inputlike', 'type': 'hidden', 'value': ''}),
+            'image': forms.FileInput()
         }
-        fields = ('author', 'text',)
+        fields = ('author', 'text', 'header', 'image', 'comment_like')

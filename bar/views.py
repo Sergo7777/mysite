@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.mail import BadHeaderError
 from django.core.mail import EmailMessage
@@ -88,11 +89,23 @@ def send_mail(request):
 def comments(request):
     comments = Comment.objects.all()
     form = CommentForm()
+    paginator = Paginator(comments, 3) # Show 4 contacts per page
+
+    page = request.GET.get('page')
+    try:
+        comments= paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        comments = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        comments = paginator.page(paginator.num_pages)
+
     return render(request, 'bar/comments.html', {'comments': comments, 'form': form})
 
 def add_comment(request):
     if request.method == "POST":
-        form = CommentForm(request.POST)
+        form = CommentForm(request.POST, request.FILES)
         if form.is_valid():
             comment = form.save(commit=False)
             author = form.cleaned_data['author']
