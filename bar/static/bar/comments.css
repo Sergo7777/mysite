@@ -5,6 +5,8 @@
 }
 .header-com{
   text-align: left;
+  border-bottom: 1px solid;
+  color: grey;
 }
 .text-header{
   margin: 4% 0;
@@ -16,7 +18,8 @@
   margin: 0 20px;
   font-size: 16px;
   font-weight: 700;
-    font-family: lucida Grande;
+  padding: 2%;
+  font-family: lucida Grande;
 }
 .new-comment{
   border: 2px solid #000;
@@ -24,18 +27,13 @@
   margin-top: 4%;
   margin-bottom: 4%;
 }
-.comment-body img{
-  padding: 20px 0;
-  
-}
 .comment-id{
-  border-bottom: 3px solid grey;
+  border-bottom: 1px solid grey;
   margin-top: 5px;
   color: #39361c;
 }
 .comment-id p{
   color: #39361c;
-  padding: 3% 5%;
 }
 /* Стили для формы*/
 
@@ -85,6 +83,7 @@
 .likes{
     float: left;
     margin-left: 10%;
+    margin-right: 10%;
 }
 .yes{
   background: #00af87;
@@ -96,8 +95,16 @@
 }
 .date{
   padding-top: 1%;
+  font-size: 12px;
 }
 .yes1{
   background: #00af87;
   border: 2px solid #fff;
+}
+.img{
+padding-top: 5px;
+}
+.left{
+  text-align: left;
+  padding-left: 10%;
 }

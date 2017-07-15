@@ -70,6 +70,6 @@ class Comment(models.Model):
     author = models.CharField(max_length=200)
     header = models.CharField(max_length=200)
     text = models.TextField()
-    created_date = models.DateField(auto_now_add=True,)
+    created_date = models.DateTimeField(auto_now_add=True,)
     image = models.ImageField(upload_to='comment/', verbose_name='Фото', blank=True, default='users/anonim.png')
     comment_like = models.CharField(blank=True, max_length=5)

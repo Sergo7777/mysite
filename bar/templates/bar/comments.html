@@ -11,16 +11,16 @@
 <div class="container">
     <div class="row comment-body">
         <div class="img">
-           <img src="{% static 'images/dom.png' %}">
+           <img src="{% static 'images/dom.png' %}" width="300px" height="130px">
         </div>
         <div class="comment сol-sm-6 сol-sm-offset-3 col-md-8 col-md-offset-2">
             <h1 class="header-com">Ваши отзывы:</h1>
             {% for comment in comments %}
             <div class="comment-id сol-sm-6">
                 <div class="row">
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <div class="user">
-                            <img src="{{comment.image.url}}" width="170px" height="170px">
+                            <img src="{{comment.image.url}}" width="90px" height="100px">
                             <strong>{{ comment.author }}</strong> 
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                             <div class="like1" id="l4"></div>
                             <div class="like1" id="l5"></div>
                         </div>   
-                        <div class="date">{{ comment.created_date|date:"d-m-Y"}}</div>
+                        <div class="date"> Отзыв написан {{ comment.created_date|date:"d-m-Y"}} {{ comment.created_date|time:"H:i" }}</div>
                         <p class="com-pad-header">"{{ comment.header }}"</p>
                         <p class="com-pad">{{ comment.text }}</p>
                     </div>
@@ -65,6 +65,9 @@
         <div class="new-comment col-sm-6 col-sm-offset-3">
             <h3 class="text-header">Оставить отзыв</h3>
             <form class="form-horizontal" method="post" enctype="multipart/form-data" action="{% url 'add_comment' %}">{% csrf_token %}
+                <div class="form-group">
+                    <div class="left"><img src="{% static 'images/like.png' %}" width="20px" height="20px">Ваша общая оценка этого ресторана</div>
+                </div>
                 <div class="form-group">
                     <div class="likes">
                         <div class="like1" id="like1" data-item='1'></div>
