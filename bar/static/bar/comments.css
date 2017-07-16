@@ -19,7 +19,7 @@
   margin: 0 20px;
   font-size: 16px;
   font-weight: 700;
-  padding: 2%;
+  padding-top: 3%;
   font-family: lucida Grande;
 }
 .new-comment{
@@ -93,12 +93,13 @@
 .user img{
     display: inline-block;
     border-radius: 50%;
-    margin: 12%;
+    margin: 0 25%;
 }
 .date{
   padding-top: 1%;
   font-size: 12px;
   color: grey;
+  float: right;
 }
 .yes1{
   background: #00af87;
@@ -143,7 +144,42 @@ padding-top: 5px;
   margin-top: 20px;
 }
 .admin{
-  font-family: lucida Grande;
-  color: blue;
-  float: right;
+  font-family: 'Marck Script';
+  color: #733a8c;
+  float: center;
+  margin: 5px 0;
+  font-size: 18px;
+}
+
+#id1 #l1{
+   background: #00af87;
+  border: 2px solid #fff; 
+}
+
+#id2 #l1, #id2 #l2{
+  background: #00af87;
+  border: 2px solid #fff;
+}
+#id3 #l1, #id3 #l2, #id3 #l3{
+  background: #00af87;
+  border: 2px solid #fff;
+}
+#id4 #l1, #id4 #l2, #id4 #l3, #id4 #l4{
+  background: #00af87;
+  border: 2px solid #fff;
+}
+#id5 #l1,#id5 #l2, #id5 #l3, #id5 #l4, #id5 #l5{
+  background: #00af87;
+  border: 2px solid #fff;
+}
+
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+    background-color: #b9a3c2;
+}
+.pagination > li > a, .pagination > li > span {
+  color: grey;
+}
+.error-like{
+  color: red;
+  font-size: 16px;
 }

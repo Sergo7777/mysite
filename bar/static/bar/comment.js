@@ -40,10 +40,6 @@ $(document).ready(function(){
     $("#like4").mouseover(function() { $('#like1, #like2, #like3, #like4').addClass("yes"); $('#em').text('Хорошо')});
     $("#like5").mouseover(function() { $('#like1, #like2, #like3, #like4, #like5').addClass("yes");$('#em').text('Отлично') });
     $("#like1, #like2, #like3, #like4, #like5").mouseout(function() { $('#like1, #like2, #like3, #like4, #like5').removeClass("yes"); $('#em').text('Нажмите, чтобы оценить') });
-    $('#id1').children('#l1').addClass('yes');
-    $('#id2').children('#l1, #l2').addClass('yes');
-    $('#id3').children('#l1, #l2, #l3').addClass('yes');
-    $('#id4').children('#l1, #l2, #l3, #l4').addClass('yes'); 
-    $('#id5').children('#l1, #l2, #l3, #l4, #l5').addClass('yes');
+    
 
 });

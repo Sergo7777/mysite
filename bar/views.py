@@ -87,27 +87,26 @@ def send_mail(request):
         return render(request, 'bar/table_list.html', {'form':form, 'tables': tables, 'message1': message1})
 
 def comments(request):
-    comments = Comment.objects.all()
+    comments = Comment.objects.all().order_by('-created_date')
+    comments_list = Comment.objects.all()
     five = Comment.objects.filter(comment_like=5)
     four = Comment.objects.filter(comment_like=4)
     three = Comment.objects.filter(comment_like=3)
     two = Comment.objects.filter(comment_like=2)
     one = Comment.objects.filter(comment_like=1)
     form = CommentForm()
-    comments = comments.reverse()
     paginator = Paginator(comments, 3) 
 
     page = request.GET.get('page')
     try:
-        comments= paginator.page(page)
+        comments = paginator.page(page)
     except PageNotAnInteger:
         # If page is not an integer, deliver first page.
         comments = paginator.page(1)
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         comments = paginator.page(paginator.num_pages)
-
-    return render(request, 'bar/comments.html', {'comments': comments, 'form': form, 'five': five, 
+    return render(request, 'bar/comments.html', {'comments': comments, 'comments_list': comments_list, 'form': form, 'five': five, 
                                                 'one': one, 'two':two, 'three': three, 'four': four})
 
 def add_comment(request):
@@ -117,11 +116,13 @@ def add_comment(request):
             comment = form.save(commit=False)
             author = form.cleaned_data['author']
             text = form.cleaned_data['text']
+            comment_like = form.cleaned_data['comment_like']
             comment.save()
             form.save()
             return redirect('comments')
+        render(request, 'bar/comments.html', {'form': form})
     else:
-        form = CommentForm()
+        form = CommentForm(request.POST, request.FILES)
     return render(request, 'bar/comments.html', {'form': form})
 
     

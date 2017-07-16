@@ -4,14 +4,15 @@
 
 {% block extra_headers %}        
 <link rel="stylesheet" type="text/css" href="{% static 'bar/comments.css' %}">
-<script src="{% static 'bar/comment.js' %}"></script>
+        <script src="{% static 'bar/comment.js' %}"></script>
+
 {% endblock %}
 
 {% block content %}
 <div class="container">
     <div class="row comment-body">
         <div class="сol-sm-6 сol-sm-offset-3 col-md-10 col-md-offset-1">
-            <div><h1 class="header-com">Ваши отзывы: ({{comments|length}})</h1><a class="fl btn btn-success" href="#form">Оставить отзыв</a></div>
+            <div><h1 class="header-com">Отзывы поситителей: ({{comments_list|length}})</h1><a class="fl btn btn-success" href="#form">Оставить отзыв</a></div>
             <div class="img col-sm-4">
                <img src="{% static 'images/dom.png' %}" width="300px" height="130px">
             </div>
@@ -76,25 +77,23 @@
             <div class="comment сol-sm-6 сol-sm-offset-3 col-md-10 col-md-offset-1">
                 <div class="paginator">
                         {% if comments.has_other_pages %}
-                        {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
                             <nav aria-label="Page navigation">
                                 <ul class="pagination">
                                     <li>
-                                        <a aria-label="Previous" href="{% url "comments" %}?page=1&amp;order_by={{order_by}}&amp;reverse={{reverse}}">&laquo;
+                                        <a aria-label="Previous" href="{% url "comments" %}?page=1&amp;">&laquo;
                                         </a>
                                     </li>
                                     {% for p in comments.paginator.page_range %}
                                     <li {% if comments.number == p %} class="active" {% endif %}>
-                                        <a href="{% url 'comments' %}?page={{ p }}&amp;order_by={{ order_by }}&amp;reverse={{reverse}}">{{ p }}</a></li>
+                                        <a href="{% url 'comments' %}?page={{ p }}&amp;">{{ p }}</a></li>
                                     {% endfor %}
                                     <li>
-                                        <a href="{% url 'comments' %}?page={{comments.paginator.num_pages }}&amp;order_by={{order_by}}&amp;reverse={{reverse}}">&raquo;
+                                        <a href="{% url 'comments' %}?page={{comments.paginator.num_pages }}&amp;order_by={{order_by}}&amp;">&raquo;
                                         </a>
                                     </li>
                                 </ul>
                             </nav>
-                        {% endwith %}
-                        {% endif %}
+                      {% endif %}
                 </div>
             </div>
         <div class="new-comment col-sm-6 col-sm-offset-3">
@@ -113,7 +112,7 @@
                     </div>
                     <div id="ratingFlag" >
                         <em id="em">Нажмите, чтобы оценить</em>
-                        {{ form.comment_like.errors}}
+                        <span class="error-like">{{ form.comment_like.errors}}</span>
                     </div>
                 </div>
                 {{ form.comment_like }}
@@ -121,28 +120,30 @@
                     <label  class="col-sm-3 control-label">Ваше имя: </label>
                     <div class="col-sm-8">
                         {{form.author}}
-                        {{ form.author.errors }}
+                        <span class="error-like">{{ form.author.errors}}</span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label  class="col-sm-3 control-label">Фото: </label>
                     <div class="col-sm-8">
                         {{form.image}}
-                        {{ form.emage.errors }}
+                        <span class="error-like">{{ form.image.errors}}</span>
+
                     </div>
                 </div>
                  <div class="form-group">
                     <label  class="col-sm-3 control-label">Заголовок: </label>
                     <div class="col-sm-8">
                         {{form.header}}
-                        {{ form.header.errors }}
+                        <span class="error-like">{{ form.header.errors}}</span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label  class="col-sm-3 control-label">Комментарий: </label>
                     <div class="col-sm-8">
                         {{form.text}}
-                        {{ form.text.errors }}
+                        <span class="error-like">{{ form.text.errors}}</span>
+
                     </div>
                 </div>
                 <div class="form-group">

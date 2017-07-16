@@ -24,7 +24,7 @@ class CommentForm(forms.ModelForm):
             'text': forms.Textarea(attrs={'rows':"6", 'class':"form-control", 'placeholder': 'Комментарий...'}),
             'author': forms.TextInput(attrs={'placeholder': 'Ваше имя', 'class':"form-control"}),
             'header': forms.TextInput(attrs={'placeholder': 'Заголовок Вашего отзыва', 'class':"form-control"}),
-            'comment_like': forms.TextInput(attrs={'id': 'inputlike', 'type': 'hidden', 'value': ''}),
+            'comment_like': forms.HiddenInput(attrs={'id': 'inputlike', }),
             'image': forms.FileInput(attrs={'type': 'file', 'label': 'Фото'})
         }
         fields = ('author', 'text', 'header', 'image', 'comment_like')
